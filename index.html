@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mume Personal Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons for premium visual icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <!-- Fluid background ambient blobs -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Dashboard Container -->
+    <main class="dashboard-container">
+        <!-- Welcome Card -->
+        <section class="glass-card welcome-card" id="welcome-section">
+            <div class="welcome-text">
+                <h1 id="welcome-title">Hello, i'm Mume.</h1>
+                <p>歡迎來到您的個人化儀表板，祝您擁有美好的一天。</p>
+            </div>
+        </section>
+
+        <!-- Columns Grid -->
+        <div class="dashboard-grid">
+            <!-- Left Grid (Clock & Weather) -->
+            <div class="left-column">
+                <!-- Clock & Date Widget -->
+                <section class="glass-card clock-card" id="clock-section">
+                    <div class="clock-display">
+                        <span id="time-display" class="clock-time">00:00</span>
+                        <span id="seconds-display" class="clock-seconds">00</span>
+                        <span id="ampm-display" class="clock-ampm">AM</span>
+                    </div>
+                    <div class="date-display">
+                        <i data-lucide="calendar"></i>
+                        <span id="date-text">2026 年 5 月 31 日</span>
+                        <span class="separator">|</span>
+                        <span id="day-of-week-text">星期日</span>
+                    </div>
+                </section>
+
+                <!-- Weather Widget -->
+                <section class="glass-card weather-card" id="weather-section">
+                    <div class="weather-header">
+                        <div class="weather-title">
+                            <i data-lucide="cloud-sun"></i>
+                            <span>即時天氣</span>
+                        </div>
+                        <!-- Keyless City Search -->
+                        <div class="search-container">
+                            <i data-lucide="search" class="search-icon"></i>
+                            <input type="text" id="city-search" class="search-input"
+                                placeholder="搜尋城市... (e.g. Taipei)">
+                        </div>
+                    </div>
+                    <div class="weather-body" id="weather-body-container">
+                        <!-- Default state is loading -->
+                        <div class="loader-container"
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; gap: 1rem;">
+                            <div class="loader"></div>
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">正在載入氣象資料...</span>
+                        </div>
+                    </div>
+                    <div class="weather-details" id="weather-details-container" style="display: none;">
+                        <div class="weather-detail-item">
+                            <i data-lucide="droplets" style="color: #38bdf8;"></i>
+                            <span class="detail-label">濕度</span>
+                            <span class="detail-value" id="humidity-value">--%</span>
+                        </div>
+                        <div class="weather-detail-item">
+                            <i data-lucide="wind" style="color: #a78bfa;"></i>
+                            <span class="detail-label">風速</span>
+                            <span class="detail-value" id="wind-value">-- km/h</span>
+                        </div>
+                        <div class="weather-detail-item">
+                            <i data-lucide="umbrella" style="color: #ec4899;"></i>
+                            <span class="detail-label">降雨機率</span>
+                            <span class="detail-value" id="pop-value">--%</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Grid (Calendar) -->
+            <section class="glass-card calendar-card" id="calendar-section">
+                <div class="calendar-header">
+                    <span id="calendar-month-year" class="calendar-title">2026 年 5 月</span>
+                    <div class="calendar-nav">
+                        <button id="prev-month" class="nav-btn" title="上個月">
+                            <i data-lucide="chevron-left"></i>
+                        </button>
+                        <button id="next-month" class="nav-btn" title="下個月">
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar-grid" id="calendar-grid-container">
+                    <!-- Dynamic rendering in JS -->
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer-text">
+            <span>Powered by Open-Meteo API • Designed for Mume</span>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
